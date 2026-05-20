@@ -2,14 +2,14 @@ import os
 import requests 
 from dotenv import load_dotenv
 
+load_dotenv()
+
 API_KEY = os.getenv("OPENROUTER_API_KEY")
 if not API_KEY:
     raise ValueError("Missing OPENROUTER_API_KEY environment variable")
 
 
 URL = "https://openrouter.ai/api/v1/chat/completions"
-
-
 
 
 def ask_ai(prompt):
@@ -26,7 +26,6 @@ def ask_ai(prompt):
         "Content-Type": "application/json"
     }
 
-
     response = requests.post(URL, headers=headers, json=payload)
 
 
@@ -37,8 +36,6 @@ def ask_ai(prompt):
 
 
     return response.json()["choices"][0]["message"]["content"]
-
-
 
 
 print("AI Chat ready! Type 'exit' to quit.\n")
