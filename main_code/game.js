@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 const startScreen = document.getElementById('startScreen');
 const gameScreen = document.getElementById('gameScreen');
 const startButton = document.getElementById('startButton');
