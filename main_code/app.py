@@ -1,10 +1,45 @@
-from flask import Flask, render_template
+@app.route("/api/chat", methods=["POST"])
+def chat_api():
+    print("🔥 API HIT")  # ADD THIS
 
-app = Flask(__name__, template_folder='.')
+    data = request.get_json()
+    print("DATA:", data)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+    ...
 
-if __name__ == '__main__':
-    app.run(debug=True)
+from flask import Flask, request, jsonify, render_template
+from api import ask_ai
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+
+@app.route("/chatbot")
+def chatbot():
+    return render_template("chatbot.html")
+
+
+@app.route("/api/chat", methods=["POST"])
+def chat_api():
+    try:
+        data = request.get_json()
+        print("Received:", data)
+
+        message = data.get("message", "")
+
+        response = ask_ai(message)
+
+        return jsonify({"response": response})
+
+    except Exception as e:
+        print("ERROR:", e)
+        return jsonify({"response": "Server error"}), 500
+
+
+if __name__ == "__main__":
+    print("Flask running on http://127.0.0.1:5000")
+    app.run(debug=True, port=5000)
