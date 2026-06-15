@@ -5,25 +5,21 @@ from api import ask_ai
 app = Flask(__name__)
 
 
-# HOME PAGE
 @app.route("/")
 def home():
     return render_template("index.html")
 
 
-# CHATBOT PAGE
 @app.route("/chatbot")
 def chatbot():
     return render_template("chatbot.html")
 
 
-# MINIGAMES PAGE
 @app.route("/minigames")
 def minigames():
     return render_template("minigames.html")
 
 
-# CHAT API
 @app.route("/api/chat", methods=["POST"])
 def chat_api():
 

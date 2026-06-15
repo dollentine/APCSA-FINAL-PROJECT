@@ -3,18 +3,14 @@ import os
 import requests
 from dotenv import load_dotenv
 
-# LOAD .env FILE
 load_dotenv()
 
-# GET API KEY
 API_KEY = os.getenv("OPENROUTER_API_KEY")
 
-# ERROR IF NO KEY
 if not API_KEY:
     raise ValueError("Missing OPENROUTER_API_KEY")
 
 
-# OPENROUTER URL
 URL = "https://openrouter.ai/api/v1/chat/completions"
 
 
@@ -69,14 +65,12 @@ def ask_ai(prompt):
 
     print("STATUS:", response.status_code)
 
-    # ERROR HANDLING
     if response.status_code != 200:
 
         print("ERROR:", response.text)
 
         return "Cooking AI is having problems right now 😭"
 
-    # GET AI RESPONSE
     result = response.json()
 
     return result["choices"][0]["message"]["content"]
