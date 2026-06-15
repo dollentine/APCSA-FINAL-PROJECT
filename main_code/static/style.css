@@ -1,0 +1,157 @@
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family: Arial;
+
+    background: #fff0f5;
+
+    text-align: center;
+}
+
+
+.container {
+
+    margin-top: 60px;
+}
+
+
+h1, h2 {
+
+    color: #ff69b4;
+}
+
+
+.subtitle {
+
+    font-size: 20px;
+
+    margin-bottom: 40px;
+}
+
+
+.button-group {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+}
+
+
+button {
+
+    background: #ffb6c1;
+
+    border: none;
+
+    padding: 15px 25px;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+
+button:hover {
+
+    transform: scale(1.05);
+
+    background: #ff69b4;
+
+    color: white;
+}
+
+
+#chatbox {
+
+    width: 70%;
+
+    height: 400px;
+
+    background: white;
+
+    margin: auto;
+
+    overflow-y: auto;
+
+    border-radius: 15px;
+
+    border: 2px solid pink;
+
+    padding: 15px;
+
+    text-align: left;
+}
+
+
+.user {
+
+    color: blue;
+}
+
+
+.ai {
+
+    color: green;
+}
+
+
+.input-area {
+
+    margin-top: 20px;
+}
+
+
+input {
+
+    width: 50%;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid pink;
+}
+
+
+.quiz-box {
+
+    background: white;
+
+    width: 60%;
+
+    margin: auto;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    border: 2px solid pink;
+}
+
+
+.answer-btn {
+
+    display: block;
+
+    margin: 15px auto;
+
+    width: 220px;
+}
+
+
+.score-text {
+
+    font-size: 22px;
+
+    margin-top: 25px;
+}
+

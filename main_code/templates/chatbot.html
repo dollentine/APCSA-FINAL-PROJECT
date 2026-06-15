@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Cooking Chatbot</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>🍳 Cooking AI Chatbot</h2>
+
+    <div id="chatbox"></div>
+
+    <div class="input-area">
+
+        <input
+            type="text"
+            id="userInput"
+            placeholder="Ask for recipes..."
+        >
+
+        <button onclick="sendMessage()">
+            Send
+        </button>
+
+    </div>
+
+    <br>
+
+    <button onclick="window.location.href='/'">
+        ⬅ Back Home
+    </button>
+
+</div>
+
+<script>
+
+async function sendMessage() {
+
+    const input = document.getElementById("userInput");
+
+    const chatbox = document.getElementById("chatbox");
+
+    const message = input.value.trim();
+
+    if (!message) return;
+
+    chatbox.innerHTML += `
+        <p class="user"><b>You:</b> ${message}</p>
+    `;
+
+    input.value = "";
+
+    try {
+
+        const response = await fetch("/api/chat", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: message
+            })
+
+        });
+
+        const data = await response.json();
+
+        chatbox.innerHTML += `
+            <p class="ai"><b>Chef AI:</b> ${data.response}</p>
+        `;
+
+        chatbox.scrollTop = chatbox.scrollHeight;
+
+    }
+
+    catch(error) {
+
+        console.log(error);
+
+        chatbox.innerHTML += `
+            <p style="color:red;">
+                Error connecting to server 😭
+            </p>
+        `;
+    }
+}
+
+</script>
+
+</body>
+</html>
+
+
