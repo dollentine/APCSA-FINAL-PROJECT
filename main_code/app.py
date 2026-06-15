@@ -45,6 +45,9 @@ def chat_api():
             "response": "Server Error 😭"
         }), 500
 
+@app.route("/recipe-generator")
+def recipe_generator():
+    return render_template("recipe_generator.html")
 
 if __name__ == "__main__":
 
