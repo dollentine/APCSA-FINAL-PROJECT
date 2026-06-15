@@ -101,7 +101,7 @@ function checkAnswer(answer) {
 
     } else {
 
-        alert("Wrong answer 😭");
+        alert("Wrong answer");
     }
 
     scoreElement.innerText = score;
