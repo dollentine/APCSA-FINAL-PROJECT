@@ -55,7 +55,7 @@ RUBYA ANAMIKA
 - Contributed slightly to frontend, by helping with style.css, connecting app.py to files under templates
 
 RAFAEL DANIELLA GABINETE
-- Contributed to frontend, by making index.html, chatbot.html, & recipe_generator.html
+- Contributed to frontend, by making index.html, chatbot.html, minigames.html & recipe_generator.html
 
 Both euqally contributed in debugging, testing, research, and overall styling. 
  
