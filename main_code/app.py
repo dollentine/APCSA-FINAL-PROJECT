@@ -42,7 +42,7 @@ def chat_api():
         print("ERROR:", e)
 
         return jsonify({
-            "response": "Server Error 😭"
+            "response": "Server Error!"
         }), 500
 
 @app.route("/recipe-generator")
